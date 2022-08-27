@@ -615,7 +615,6 @@ public class SinhVienView extends javax.swing.JFrame {
         
             try {
                 StringBuilder sb = new StringBuilder();
-                validator.checkId(textfield_MaSinhVien, sb);
                 validator.checkName(textfield_HoVaTen, sb);
                
                 if (sb.length() >0) {
@@ -679,23 +678,27 @@ public class SinhVienView extends javax.swing.JFrame {
 
     private void btn_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchActionPerformed
         // TODO add your handling code here:
-        if(textfield_MaSinhVienTimKiem.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Ban chua nhap MA SINH VIEN");
-        }else{
-            SinhVien sv = listSV.getSinhVienByID(textfield_MaSinhVienTimKiem.getText());
-            if(sv != null){
-                SinhVien st = listSV.getOneStudentByMaSV(sv.getMaSV());
-                if(st!= null){
-                    setModel(st);
-                } else{
-                textfield_MaSinhVien.setText("");
-                textfield_HoVaTen.setText("");
-                textfield_NgaySinh.setText("");
-                radiobutton_Nu.isSelected();
-                textarea_DiaChi.setText("");
-                lb_HinhAnh.setText(strHinhAnh);
+            StringBuilder sb = new StringBuilder();
+            validator.checkId(textfield_MaSinhVienTimKiem, sb); 
+            if (sb.length() >0) {
+               JOptionPane.showMessageDialog(this, sb.toString(),"Loi",JOptionPane.ERROR_MESSAGE);
+            }else{
+                SinhVien sv = listSV.getSinhVienByID(textfield_MaSinhVienTimKiem.getText());
+                if(sv != null){
+                    SinhVien st = listSV.getOneStudentByMaSV(sv.getMaSV());
+                    if(st!= null){
+                        setModel(st);
+                    } else{
+                    textfield_MaSinhVien.setText("");
+                    textfield_HoVaTen.setText("");
+                    textfield_NgaySinh.setText("");
+                    radiobutton_Nu.isSelected();
+                    textarea_DiaChi.setText("");
+                    lb_HinhAnh.setText(strHinhAnh);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Ma sinh vien ko ton tai");
                 }
-            }
         }
     }//GEN-LAST:event_btn_SearchActionPerformed
 
