@@ -483,7 +483,7 @@ public class SinhVienView extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "ID of student exist!");
                return;
            }
-           if(listSV.add(sv)>0){
+           else if(listSV.add(sv)>0){
                JOptionPane.showMessageDialog(this, "Luu Thanh Cong");
                fillDataTABLE();
            }
@@ -635,16 +635,14 @@ public class SinhVienView extends javax.swing.JFrame {
 
     private void button_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DeleteActionPerformed
         // TODO add your handling code here:
-        if(textfield_MaSinhVien.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Sinh vien chua ton tai ma");
-        }else{
+        
             if(listSV.deleteSinhVienByID(textfield_MaSinhVien.getText())>0){
                 JOptionPane.showMessageDialog(this, "Xoa thanh cong");
                 fillDataTABLE();
             }else{
                 JOptionPane.showMessageDialog(this, "Khong tim thay sinh vien de xoa");
             }
-        }
+        
     }//GEN-LAST:event_button_DeleteActionPerformed
    
     private void menuItem_OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_OpenActionPerformed

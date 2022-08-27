@@ -57,7 +57,7 @@ public class validator {
         }
 
         if (isValidate) {
-            feild.setBackground(Color.white);
+            feild.setBackground(Color.green);
         }
 
         return isValidate;
@@ -90,9 +90,9 @@ public class validator {
         }
 
         try {
-            String name = feild.getText();
+            String ID = feild.getText();
             Pattern pattern = Pattern.compile("[/.!@#$%&*()_+=|<>?{}\\[\\]~-]");
-            Matcher matcher = pattern.matcher(name);
+            Matcher matcher = pattern.matcher(ID);
             boolean isSpecial = matcher.find();
 
             // for special characters
@@ -101,7 +101,7 @@ public class validator {
                 feild.setBackground(new Color(214, 0, 0, 116));
             }
 
-            if (name.startsWith(" ")) {
+            if (ID.startsWith(" ")) {
                 stringBuilder.append("Please remove space!\n");
                 feild.setBackground(new Color(214, 0, 0, 116));
             }
@@ -114,7 +114,7 @@ public class validator {
         }
 
         if (isValidate) {
-            feild.setBackground(Color.white);
+            feild.setBackground(Color.red);
         }
 
         return isValidate;

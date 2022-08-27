@@ -56,7 +56,6 @@ public class Validation {
     public static boolean isDate(JTextField txtField, String messag){
         String txtValue = txtField.getText().trim();
         String strPtn = "^[0-3][0-9]/[01][0-9]/(19|20)[0-9]{2}$";
-
         boolean exp = (!txtValue.matches(strPtn));
         return showMessage(txtField, messag, exp);
     }
