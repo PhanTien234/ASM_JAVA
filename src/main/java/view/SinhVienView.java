@@ -619,6 +619,8 @@ public class SinhVienView extends javax.swing.JFrame {
                
                 if (sb.length() >0) {
                    JOptionPane.showMessageDialog(this, sb.toString(),"Loi",JOptionPane.ERROR_MESSAGE);
+                }else if(!validateForm()){
+                    return;
                 }
                 else {
                      SinhVien sv = getDuLieu();
