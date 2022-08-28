@@ -57,7 +57,7 @@ public class validator {
         }
 
         if (isValidate) {
-            feild.setBackground(Color.green);
+            feild.setBackground(Color.white);
         }
 
         return isValidate;
@@ -114,7 +114,7 @@ public class validator {
         }
 
         if (isValidate) {
-            feild.setBackground(Color.red);
+            feild.setBackground(Color.white);
         }
 
         return isValidate;

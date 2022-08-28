@@ -442,7 +442,7 @@ public class SinhVienView extends javax.swing.JFrame {
             return false;
         }
         if(Validation.isDate(textfield_NgaySinh, "Ngay sinh sai dinh dang")){
-            
+            return false;
         }
         if(Validation.isEmpty(textarea_DiaChi, "Dia chi khong duoc de trong!")){
             return false;
