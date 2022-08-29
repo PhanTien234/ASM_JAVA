@@ -474,19 +474,29 @@ public class SinhVienView extends javax.swing.JFrame {
     
     private void button_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SaveActionPerformed
         // TODO add your handling code here:
-           if(!validateForm()){
-               return;
-           }
-          try {
-             SinhVien sv = getDuLieu();
-           if (listSV.getSinhVienByID(sv.getMaSV()) != null) {
-               JOptionPane.showMessageDialog(this, "ID of student exist!");
-               return;
-           }
-           else if(listSV.add(sv)>0){
-               JOptionPane.showMessageDialog(this, "Luu Thanh Cong");
-               fillDataTABLE();
-           }
+          
+        
+        try{    
+            StringBuilder sb = new StringBuilder();
+            validator.checkId(textfield_MaSinhVien, sb);
+            validator.checkName(textfield_HoVaTen, sb);
+            
+            if (sb.length() >0) {
+                JOptionPane.showMessageDialog(this, sb.toString(),"Loi",JOptionPane.ERROR_MESSAGE);
+            }else if(!validateForm()){
+                return;
+            }else{
+         
+                SinhVien sv = getDuLieu();
+                if (listSV.getSinhVienByID(sv.getMaSV()) != null) {
+                  JOptionPane.showMessageDialog(this, "ID of student exist!");
+                  return;
+                }
+                else if(listSV.add(sv)>0){
+                  JOptionPane.showMessageDialog(this, "Luu Thanh Cong");
+                  fillDataTABLE();
+              }
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -611,8 +621,6 @@ public class SinhVienView extends javax.swing.JFrame {
     
     private void button_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_EditActionPerformed
         // TODO add your handling code here:
-       
-        
             try {
                 StringBuilder sb = new StringBuilder();
                 validator.checkName(textfield_HoVaTen, sb);
@@ -627,6 +635,8 @@ public class SinhVienView extends javax.swing.JFrame {
                     if(listSV.updateSinhVienByID(sv) > 0) {
                     JOptionPane.showMessageDialog(this, "Cap nhat thanh cong");
                     fillDataTABLE();
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Vui long khong thay doi ID");
                     }
                 }
             } catch (ParseException ex) {
