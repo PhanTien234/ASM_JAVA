@@ -30,6 +30,7 @@ public class FrMain extends javax.swing.JFrame {
         button_QUANLYSINHVIEN = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        button_ManageGrade = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,13 @@ public class FrMain extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student-11258.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
+        button_ManageGrade.setText("MANAGE GRADE");
+        button_ManageGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_ManageGradeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,17 +72,21 @@ public class FrMain extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(33, 33, 33)
                 .addComponent(button_QUANLYSINHVIEN)
+                .addGap(167, 167, 167)
+                .addComponent(button_ManageGrade)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
-                .addComponent(button_QUANLYSINHVIEN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_QUANLYSINHVIEN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_ManageGrade))
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -86,9 +98,15 @@ public class FrMain extends javax.swing.JFrame {
 
     private void button_QUANLYSINHVIENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_QUANLYSINHVIENActionPerformed
         // TODO add your handling code here:
-        SinhVienView sv = new SinhVienView();
+        StudentView sv = new StudentView();
         sv.setVisible(true);
     }//GEN-LAST:event_button_QUANLYSINHVIENActionPerformed
+
+    private void button_ManageGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ManageGradeActionPerformed
+        // TODO add your handling code here:
+        ManageGradeView gradeView = new ManageGradeView();
+        gradeView.setVisible(true);
+    }//GEN-LAST:event_button_ManageGradeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +145,7 @@ public class FrMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_ManageGrade;
     private javax.swing.JButton button_QUANLYSINHVIEN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
